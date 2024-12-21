@@ -82,9 +82,7 @@ SUPPORT_GROUP = getenv(
     "SUPPORT_GROUP", "https://t.me/ur_support07"
 ) 
 
-# Set it in True if you want to leave
-
- your assistant after a certain amount of time. [Set time via AUTO_LEAVE_ASSISTANT_TIME]
+# Set it in True if you want to leave your assistant after a certain amount of time. [Set time via AUTO_LEAVE_ASSISTANT_TIME]
 AUTO_LEAVING_ASSISTANT = getenv("AUTO_LEAVING_ASSISTANT", False)
 
 # Time after which you're assistant account will leave chats automatically.
