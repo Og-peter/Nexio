@@ -483,7 +483,7 @@ async def feature_callback(client: Client, callback_query: CallbackQuery):
             ),
         ],
         [
-            InlineKeyboardButton(text="ᴍᴜsɪᴄ", callback_data="music"),
+            InlineKeyboardButton(text="ϻυsɪᴄ", callback_data="music"),
             InlineKeyboardButton(text="ϻᴧηᴧɢєϻєηᴛ", callback_data="management"),
         ],
         [
@@ -509,39 +509,39 @@ async def music_callback(client: Client, callback_query: CallbackQuery):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton(text="Aᴅᴍɪɴ", callback_data="music_callback hb1"),
-                InlineKeyboardButton(text="Aᴜᴛʜ", callback_data="music_callback hb2"),
+                InlineKeyboardButton(text="ᴧᴅϻɪη", callback_data="music_callback hb1"),
+                InlineKeyboardButton(text="ᴧυᴛʜ", callback_data="music_callback hb2"),
                 InlineKeyboardButton(
-                    text="Bʀᴏᴀᴅᴄᴀsᴛ", callback_data="music_callback hb3"
+                    text="ʙ-ᴄᴧsᴛ", callback_data="music_callback hb3"
                 ),
             ],
             [
                 InlineKeyboardButton(
-                    text="Bʟ-Cʜᴀᴛ", callback_data="music_callback hb4"
+                    text="ʙʟ-ᴄʜᴧᴛ", callback_data="music_callback hb4"
                 ),
                 InlineKeyboardButton(
-                    text="Bʟ-Usᴇʀ", callback_data="music_callback hb5"
+                    text="ʙʟ-υsєꝛ", callback_data="music_callback hb5"
                 ),
-                InlineKeyboardButton(text="C-Pʟᴀʏ", callback_data="music_callback hb6"),
+                InlineKeyboardButton(text="ᴄ-ᴘʟᴧʏ", callback_data="music_callback hb6"),
             ],
             [
-                InlineKeyboardButton(text="G-Bᴀɴ", callback_data="music_callback hb7"),
-                InlineKeyboardButton(text="Lᴏᴏᴘ", callback_data="music_callback hb8"),
+                InlineKeyboardButton(text="ɢ-ʙᴧη", callback_data="music_callback hb7"),
+                InlineKeyboardButton(text="ʟσσᴘ", callback_data="music_callback hb8"),
                 InlineKeyboardButton(
-                    text="Mᴀɪɴᴛᴇɴᴀɴᴄᴇ", callback_data="music_callback hb9"
-                ),
-            ],
-            [
-                InlineKeyboardButton(text="Pɪɴɢ", callback_data="music_callback hb10"),
-                InlineKeyboardButton(text="Pʟᴀʏ", callback_data="music_callback hb11"),
-                InlineKeyboardButton(
-                    text="Sʜᴜғғʟᴇ", callback_data="music_callback hb12"
+                    text="ʟσɢ", callback_data="music_callback hb9"
                 ),
             ],
             [
-                InlineKeyboardButton(text="Sᴇᴇᴋ", callback_data="music_callback hb13"),
-                InlineKeyboardButton(text="Sᴏɴɢ", callback_data="music_callback hb14"),
-                InlineKeyboardButton(text="Sᴘᴇᴇᴅ", callback_data="music_callback hb15"),
+                InlineKeyboardButton(text="ᴘɪηɢ", callback_data="music_callback hb10"),
+                InlineKeyboardButton(text="ᴘʟᴧʏ", callback_data="music_callback hb11"),
+                InlineKeyboardButton(
+                    text="sʜυғғʟє", callback_data="music_callback hb12"
+                ),
+            ],
+            [
+                InlineKeyboardButton(text="sєєᴋ", callback_data="music_callback hb13"),
+                InlineKeyboardButton(text="sσηɢ", callback_data="music_callback hb14"),
+                InlineKeyboardButton(text="sᴘєєᴅ", callback_data="music_callback hb15"),
             ],
             [InlineKeyboardButton(text="✯ ʙᴀᴄᴋ ✯", callback_data=f"feature")],
         ]
