@@ -488,7 +488,7 @@ async def feature_callback(client: Client, callback_query: CallbackQuery):
         ],
         [
             InlineKeyboardButton(text="ᴛσσʟs", callback_data="tools"),
-            InlineKeyboardButton(text="ᴀʟʟ", callback_data="settings_back_helper"),
+            InlineKeyboardButton(text="ησᴛє", callback_data="allllluuu"),
         ],
         [InlineKeyboardButton(text="✯ ʜᴏᴍᴇ ✯", callback_data="go_to_start")],
     ]
@@ -502,6 +502,31 @@ async def feature_callback(client: Client, callback_query: CallbackQuery):
     await callback_query.message.edit_text(
         text=k, reply_markup=InlineKeyboardMarkup(keyboard)
     )
+
+#apna ya hai
+
+@app.on_callback_query(filters.regex("allllluuu"))
+async def back_button_callback(client: Client, callback_query: CallbackQuery):
+    keyboard = [
+        [
+            InlineKeyboardButton(text="˹ᴏᴡɴᴇʀ˼", user_id=config.OWNER_ID[0]),
+            InlineKeyboardButton(
+                text="˹ɢɪᴛʜᴜʙ˼",
+                url="https://github.com/Rishubot",
+            ),
+        ],
+        [
+            InlineKeyboardButton(text="˹ɢʀᴏᴜᴘ˼", url=f"{config.SUPPORT_GROUP}"),
+            InlineKeyboardButton(text="˹ᴄʜᴀɴɴᴇʟ˼", url=f"{config.SUPPORT_CHANNEL}"),
+        ],
+        [InlineKeyboardButton(text="✯ ʜᴏᴍᴇ ✯", callback_data="go_to_start")],
+    ]
+
+    await callback_query.message.edit_text(
+        "**๏ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ᴍᴏʀᴇ ᴀʙᴏᴜᴛ ᴍᴇ**",
+        reply_markup=InlineKeyboardMarkup(keyboard),
+    )
+
 
 
 @app.on_callback_query(filters.regex("music"))
@@ -674,7 +699,7 @@ async def feature_callback(client: Client, callback_query: CallbackQuery):
         ],
         [
             InlineKeyboardButton(text="ᴛσσʟs", callback_data="tools"),
-            InlineKeyboardButton(text="ᴀʟʟ", callback_data="settings_back_helper"),
+            InlineKeyboardButton(text="ησᴛє", callback_data="allllluuu"),
         ],
         [InlineKeyboardButton(text="✯ ʜᴏᴍᴇ ✯", callback_data="go_to_start")],
     ]
