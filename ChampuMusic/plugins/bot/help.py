@@ -511,19 +511,15 @@ async def back_button_callback(client: Client, callback_query: CallbackQuery):
         [
             InlineKeyboardButton(text="˹ᴏᴡɴᴇʀ˼", user_id=config.OWNER_ID[0]),
             InlineKeyboardButton(
-                text="˹ɢɪᴛʜᴜʙ˼",
-                url="https://github.com/Rishubot",
+                text="˹ᴄᴏɴᴛᴀᴄᴛ˼",
+                url="https://t.me/rishu1286",
             ),
         ],
-        [
-            InlineKeyboardButton(text="˹ɢʀᴏᴜᴘ˼", url=f"{config.SUPPORT_GROUP}"),
-            InlineKeyboardButton(text="˹ᴄʜᴀɴɴᴇʟ˼", url=f"{config.SUPPORT_CHANNEL}"),
-        ],
-        [InlineKeyboardButton(text="✯ ʜᴏᴍᴇ ✯", callback_data="go_to_start")],
+        [InlineKeyboardButton(text="✯ ʜᴏᴍᴇ ✯", callback_data="feature")],
     ]
 
     await callback_query.message.edit_text(
-        """**❖ɪғ ʏᴏᴜ ᴡᴀɴᴛ ᴍᴀᴋᴇ ʏᴏᴜʀ ᴏᴡɴ ʙᴏᴛs❖
+        """<blockquote>**❖ɪғ ʏᴏᴜ ᴡᴀɴᴛ ᴍᴀᴋᴇ ʏᴏᴜʀ ᴏᴡɴ ʙᴏᴛs❖</blockquote>
 ╭───────────────────⦿
 │ ᴀʟʟ ʙᴏᴛs ᴘᴏᴡᴇʀғᴜʟʟ & ʟᴀɢ ғʀᴇᴇ
 ╰───────────────────⦿
@@ -542,7 +538,7 @@ async def back_button_callback(client: Client, callback_query: CallbackQuery):
 │❍ ᴘᴀɪᴅ ᴘʀᴏᴍᴏ + ʙᴏᴛ ʜᴏsᴛɪɴɢ⎚
 ╰───────────────────⦿
 ❍ ᴛɪᴍᴇ ᴡᴀsᴇᴛʀ = ʙʟᴏᴄᴋ 
-❍ ᴄᴏɴᴛᴀᴄᴛ - ᴄʟɪᴄᴋ ғᴏʀ ᴅᴍ**""",
+❍ ᴄᴏɴᴛᴀᴄᴛ - [ᴄʟɪᴄᴋ ғᴏʀ ᴅᴍ](t.me/rishu1286)**""",
         reply_markup=InlineKeyboardMarkup(keyboard),
     )
 
