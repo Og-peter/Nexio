@@ -74,10 +74,10 @@ def stream_markup_timerr(_, videoid, chat_id, played, dur):
         ],
         [
             InlineKeyboardButton(
-                text="✚ ᴘʟᴀʏʟɪsᴛ", callback_data=f"champu_playlist {videoid}"
+                text=" ˹ᴘʟᴀʏʟɪsᴛ˼", callback_data=f"champu_playlist {videoid}"
             ),
             InlineKeyboardButton(
-                text="ᴄᴏɴᴛʀᴏʟs ♻",
+                text="˹ᴄᴏɴᴛʀᴏʟs˼ ",
                 callback_data=f"Pages Back|3|{videoid}|{chat_id}",
             ),
         ],
@@ -153,10 +153,10 @@ def telegram_markup_timer(_, chat_id, played, dur):
         ],
         [
             InlineKeyboardButton(
-                text="✚ ᴘʟᴀʏʟɪsᴛ", callback_data=f"champu_playlist {videoid}"
+                text=" ˹ᴘʟᴀʏʟɪsᴛ˼", callback_data=f"champu_playlist {videoid}"
             ),
             InlineKeyboardButton(
-                text="ᴄᴏɴᴛʀᴏʟs ♻",
+                text="˹ᴄᴏɴᴛʀᴏʟs˼ ",
                 callback_data=f"Pages Back|3|{videoid}|{chat_id}",
             ),
         ],
@@ -423,10 +423,10 @@ def stream_markup(_, videoid, chat_id):
         ],
         [
             InlineKeyboardButton(
-                text="✚ ᴘʟᴀʏʟɪsᴛ", callback_data=f"champu_playlist {videoid}"
+                text=" ˹ᴘʟᴀʏʟɪsᴛ˼", callback_data=f"champu_playlist {videoid}"
             ),
             InlineKeyboardButton(
-                text="ᴄᴏɴᴛʀᴏʟs ♻",
+                text="˹ᴄᴏɴᴛʀᴏʟs˼ ",
                 callback_data=f"Pages Back|3|{videoid}|{chat_id}",
             ),
         ],
@@ -645,10 +645,10 @@ def stream_markup_timer2(_, chat_id, played, dur):
         ],
         [
             InlineKeyboardButton(
-                text="✚ ᴘʟᴀʏʟɪsᴛ", callback_data=f"champu_playlist {videoid}"
+                text="˹ᴘʟᴀʏʟɪsᴛ˼", callback_data=f"champu_playlist {videoid}"
             ),
             InlineKeyboardButton(
-                text="ᴄᴏɴᴛʀᴏʟs ♻",
+                text="˹ᴄᴏɴᴛʀᴏʟs˼ ",
                 callback_data=f"Pages Back|3|{videoid}|{chat_id}",
             ),
         ],
