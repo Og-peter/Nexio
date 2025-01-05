@@ -173,10 +173,10 @@ class ChampuBot(Client):
 
         LOGGER(__name__).info(f"Bot {self.name} ({self.id}) started successfully!")
         # Send start message to a group or channel if needed
-        if config.GROUP_ID:
+        if config.LOGGER_ID:
             try:
                 await self.send_message(
-                    chat_id=config.GROUP_ID,
+                    chat_id=config.LOGGER_ID,
                     text=f"Bot has successfully started!\nWelcome {self.name} (@{self.username})",
                     reply_markup=button
                 )
