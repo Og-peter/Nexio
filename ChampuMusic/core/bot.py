@@ -68,14 +68,34 @@ class ChampuBot(Client):
             )
         except pyrogram.errors.ChatWriteForbidden as e:
             LOGGER(__name__).error(f"Bot cannot write to the log group: {e}")
+            try:
+                await self.send_message(
+                    config.LOGGER_ID,
+                    text=f"""
+𖣐 {self.name} ɪs ᴀʟɪᴠᴇ ʙᴀʙʏ 𖣐
+━━━━━━━━ ⊱◈◈◈⊰ ━━━━━━━━
+
+● ɪᴅ ➠ `{self.id}`
+● ᴜsᴇʀɴᴀᴍᴇ ➠ @{self.username}
+
+◈ ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ
+━━━━━━━━ ⊱◈◈◈⊰ ━━━━━━━━
+""",
+                    reply_markup=button,
+                )
+            except Exception as e:
+                LOGGER(__name__).error(f"Failed to send message in log group: {e}")
         except Exception as e:
-            LOGGER(__name__).error(f"Unexpected error while sending to log group: {e}")
+            LOGGER(__name__).error(
+                f"Unexpected error while sending to log group: {e}"
+            )
     else:
         LOGGER(__name__).warning("LOGGER_ID is not set, skipping log group notifications.")
 
     # Setting commands
     if config.SET_CMDS:
         try:
+            # Commands for private chats
             await self.set_bot_commands(
                 commands=[
                     BotCommand("start", "sᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ"),
@@ -84,6 +104,8 @@ class ChampuBot(Client):
                 ],
                 scope=BotCommandScopeAllPrivateChats(),
             )
+
+            # Commands for group chats
             await self.set_bot_commands(
                 commands=[
                     BotCommand("play", "Start playing requested song"),
@@ -97,20 +119,68 @@ class ChampuBot(Client):
                 ],
                 scope=BotCommandScopeAllGroupChats(),
             )
+
+            # Commands for admin-specific chats
+            await self.set_bot_commands(
+                commands=[
+                    BotCommand("start", "❥ ✨ᴛᴏ sᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ✨"),
+                    BotCommand("ping", "❥ 🍁ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ ᴘɪɴɢ🍁"),
+                    BotCommand("help", "❥ 🥺ᴛᴏ ɢᴇᴛ ʜᴇʟᴘ🥺"),
+                    BotCommand("vctag", "❥ 😇ᴛᴀɢᴀʟʟ ғᴏʀ ᴠᴄ🙈"),
+                    BotCommand("stopvctag", "❥ 📍sᴛᴏᴘ ᴛᴀɢᴀʟʟ ғᴏʀ ᴠᴄ 💢"),
+                    BotCommand("tagall", "❥ 🔻ᴛᴀɢ ᴀʟʟ ᴍᴇᴍʙᴇʀs ʙʏ ᴛᴇxᴛ🔻"),
+                    BotCommand("cancel", "❥ 🔻ᴄᴀɴᴄᴇʟ ᴛʜᴇ ᴛᴀɢɢɪɴɢ🔻"),
+                    BotCommand("settings", "❥ 🔻ᴛᴏ ɢᴇᴛ ᴛʜᴇ sᴇᴛᴛɪɴɢs🔻"),
+                    BotCommand("reload", "❥ 🪐ᴛᴏ ʀᴇʟᴏᴀᴅ ᴛʜᴇ ʙᴏᴛ🪐"),
+                    BotCommand("play", "❥ ❣️ᴛᴏ ᴘʟᴀʏ ᴛʜᴇ sᴏɴɢ❣️"),
+                    BotCommand("vplay", "❥ ❣️ᴛᴏ ᴘʟᴀʏ ᴛʜᴇ ᴍᴜsɪᴄ ᴡɪᴛʜ ᴠɪᴅᴇᴏ❣️"),
+                    BotCommand("pause", "❥ 🥀ᴛᴏ ᴘᴀᴜsᴇ ᴛʜᴇ sᴏɴɢs🥀"),
+                    BotCommand("resume", "❥ 💖ᴛᴏ ʀᴇsᴜᴍᴇ ᴛʜᴇ sᴏɴɢ💖"),
+                    BotCommand("end", "❥ 🐚ᴛᴏ ᴇᴍᴘᴛʏ ᴛʜᴇ ϙᴜᴇᴜᴇ🐚"),
+                    BotCommand("queue", "❥ 🤨ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ ϙᴜᴇᴜᴇ🤨"),
+                    BotCommand("playlist", "❥ 🕺ᴛᴏ ɢᴇᴛ ᴛʜᴇ ᴘʟᴀʏʟɪsᴛ🕺"),
+                    BotCommand("stop", "❥ ❤‍🔥ᴛᴏ sᴛᴏᴘ ᴛʜᴇ sᴏɴɢs❤‍🔥"),
+                    BotCommand("lyrics", "❥ 🕊️ᴛᴏ ɢᴇᴛ ᴛʜᴇ ʟʏʀɪᴄs🕊️"),
+                    BotCommand("song", "❥ 🔸ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴛʜᴇ sᴏɴɢ🔸"),
+                    BotCommand("video", "❥ 🔸ᴛᴏ ᴅᴏᴡɴʟᴏᴀᴅ ᴛʜᴇ ᴠɪᴅᴇᴏ sᴏɴɢ🔸"),
+                    BotCommand("gali", "❥ 🔻ᴛᴏ ʀᴇᴘʟʏ ғᴏʀ ғᴜɴ🔻"),
+                    BotCommand("shayri", "❥ 🔻ᴛᴏ ɢᴇᴛ ᴀ sʜᴀʏᴀʀɪ🔻"),
+                    BotCommand("love", "❥ 🔻ᴛᴏ ɢᴇᴛ ᴀ ʟᴏᴠᴇ sʜᴀʏᴀʀɪ🔻"),
+                    BotCommand("sudolist", "❥ 🌱ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ sᴜᴅᴏʟɪsᴛ🌱"),
+                    BotCommand("owner", "❥ 💝ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ ᴏᴡɴᴇʀ💝"),
+                    BotCommand("update", "❥ 🐲ᴛᴏ ᴜᴘᴅᴀᴛᴇ ʙᴏᴛ🐲"),
+                    BotCommand("gstats", "❥ 💘ᴛᴏ sᴛᴀᴛs ᴏғ ᴛʜᴇ ʙᴏᴛ💘"),
+                    BotCommand("repo", "❥ 🍌ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ 𝚁𝙴𝙿𝙾🍌"),
+                ],
+                scope=BotCommandScopeAllChatAdministrators(),
+            )
         except Exception as e:
             LOGGER(__name__).error(f"Failed to set bot commands: {e}")
 
     # Check if bot is an admin in the logger group
     if config.LOGGER_ID:
         try:
-            chat_member_info = await self.get_chat_member(
-                config.LOGGER_ID, self.id
-            )
+            chat_member_info = await self.get_chat_member(config.LOGGER_ID, self.id)
             if chat_member_info.status != ChatMemberStatus.ADMINISTRATOR:
-                LOGGER(__name__).error(
-                    "Please promote Bot as Admin in Logger Group"
-                )
+                LOGGER(__name__).error("Please promote Bot as Admin in Logger Group")
         except Exception as e:
             LOGGER(__name__).error(f"Error occurred while checking bot status: {e}")
 
-    LOGGER(__name__).info(f"MusicBot Started as {self.name}")
+    LOGGER(__name__).info(f"Bot {self.name} ({self.id}) started successfully!")
+    # Send start message to a group or channel if needed
+    if config.GROUP_ID:
+        try:
+            await self.send_message(
+                chat_id=config.GROUP_ID,
+                text=f"Bot has successfully started!\nWelcome {self.name} ({self.username})",
+                reply_markup=button
+            )
+        except Exception as e:
+            LOGGER(__name__).error(f"Failed to send start message to group: {e}")
+    
+    # Handle additional custom startup behavior or features here
+    if hasattr(config, 'CUSTOM_STARTUP'):
+        try:
+            await self.custom_startup()
+        except Exception as e:
+            LOGGER(__name__).error(f"Error in custom startup process: {e}")
