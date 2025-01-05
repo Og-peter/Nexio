@@ -233,7 +233,7 @@ lyrics_4 : "ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴ ʙᴇʟᴏᴡ ᴀɴᴅ
 
 #Ping
 ping_1 : "»{0} ɪs ᴩɪɴɢɪɴɢ..."
-ping_2 : "**» ᴘᴏɴɢ**: `{0}`ᴍs \n\n<b><u>{1} sʏsᴛᴇᴍ sᴛᴀᴛ's :</u></b>\n\n🌋 ᴜᴩᴛɪᴍᴇ : {2}\n🌋 ʀᴀᴍ : {3} \n🌋 ᴄᴩᴜ : {4} \n🌋 ᴅɪsᴋ : {5} \n🌋 ᴩʏ-ᴛɢᴄᴀʟʟs : `{6} ᴍs`"
+ping_2 : "**» ᴘᴏɴɢ**: `{0}`ᴍs \n\n<b><u>{1} sʏsᴛᴇᴍ sᴛᴀᴛ's :</u></b>\n\n❄️ ᴜᴩᴛɪᴍᴇ : {2}\n🌋 ʀᴀᴍ : {3} \n🍁 ᴄᴩᴜ : {4} \n🌿 ᴅɪsᴋ : {5} \n🌸 ᴩʏ-ᴛɢᴄᴀʟʟs : `{6} ᴍs`"
 # Song
 song_1 : "ʏᴏᴜ ᴄᴀɴ ᴅᴏᴡɴʟᴏᴀᴅ ᴍᴜsɪᴄ ᴏʀ ᴠɪᴅᴇᴏ ꜰʀᴏᴍ ʏᴏᴜᴛᴜʙᴇ ᴏɴʟʏ ɪɴ ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ. ᴘʟᴇᴀsᴇ sᴛᴀʀᴛ ᴍᴇ ɪɴ ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ."
 song_2 : "**ᴜsᴀɢᴇ:**\n\n/song [ᴍᴜsɪᴄ ɴᴀᴍᴇ] ᴏʀ [ʏᴏᴜᴛᴜʙᴇ ʟɪɴᴋ]"
@@ -255,8 +255,8 @@ queue_4 : "<blockquote>** ᴀᴅᴅᴇᴅ ᴛᴏ ǫᴜᴇᴜᴇ ᴀᴛ </blockqu
 queue_5 : "ᴏɴʟʏ ᴏɴᴇ ᴛʀᴀᴄᴋ ɪs ɪɴ ǫᴜᴇᴜᴇ, ᴀᴅᴅ sᴏᴍᴇ ᴍᴏʀᴇ ᴛʀᴀᴄᴋs ɪɴ ǫᴜᴇᴜᴇ ᴛᴏ ᴄʜᴇᴄᴋ ᴡʜᴏʟᴇ ǫᴜᴇᴜᴇ."
 
 # All Streaming Lines
-stream_1 : "<blockquote><b>❖ <a href=https://t.me/ur_rishu_143>ʀɪsʜᴜ-ᴍᴜsɪᴄ</a> sᴛʀᴇᴀᴍɪɴɢ ⏤͟͟͞͞★</b></blockquote>\n\n<b>⬤ ᴛɪᴛʟᴇ ➥</b> [{0}]({1})\n<b>⬤ ᴛɪᴍᴇ ➥</b> {2} ᴍɪɴᴜᴛᴇs\n<b>⬤ ʙʏ ➥</b> {3} \n<blockquote><b>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ <a href=https://t.me/nexio_music_xbot>ɴᴇxɪᴏ-ᴍᴜsɪᴄ</a></b></blockquote>"
-stream_2 : "<blockquote><b>❖ <a href=https://t.me/ur_rishu_143>ʀɪsʜᴜ-ᴍᴜsɪᴄ</a> sᴛʀᴇᴀᴍɪɴɢ ⏤͟͟͞͞★</b></blockquote>\n\n<b>⬤ ᴛɪᴛʟᴇ ➥</b> ʟɪᴠᴇ sᴛʀᴇᴀᴍ [ᴜʀʟ]\n**⬤ ʙʏ ➥** {0}"
+stream_1 : "<blockquote><b>❖ <a href=https://t.me/nexio_music_xbot>ɴᴇxɪᴏ-ᴍᴜsɪᴄ</a> sᴛʀᴇᴀᴍɪɴɢ ⏤͟͟͞͞★</b></blockquote>\n\n<b>⬤ ᴛɪᴛʟᴇ ➥</b> [{0}]({1})\n<b>⬤ ᴛɪᴍᴇ ➥</b> {2} ᴍɪɴᴜᴛᴇs\n<b>⬤ ʙʏ ➥</b> {3} \n<blockquote><b>❖ ᴘᴏᴡᴇʀᴇᴅ ʙʏ ➥ <a href=https://t.me/nexio_music_xbot>ɴᴇxɪᴏ-ᴍᴜsɪᴄ</a></b></blockquote>"
+stream_2 : "<blockquote><b>❖ <a href=https://t.me/nexio_music_xbot>ɴᴇxɪᴏ-ᴍᴜsɪᴄ</a> sᴛʀᴇᴀᴍɪɴɢ ⏤͟͟͞͞★</b></blockquote>\n\n<b>⬤ ᴛɪᴛʟᴇ ➥</b> ʟɪᴠᴇ sᴛʀᴇᴀᴍ [ᴜʀʟ]\n**⬤ ʙʏ ➥** {0}"
 
 V_C_1 : "ғᴇᴛᴄʜɪɴɢ ᴘᴀʀᴛɪᴄɪᴘᴀɴᴛs ʟɪsᴛ...."
 V_C_2 : "**ɴᴀᴍᴇ: {0}**\n    **ɪᴅ:** {1}\n    **ᴜsᴇʀɴᴀᴍᴇ:** {2}\n    **ᴠɪᴅᴇᴏ sʜᴀʀɪɴɢ:** {3}\n    **sᴄʀᴇᴇɴ sʜᴀʀɪɴɢ:** {4}\n    **ɪs ʜᴀɴᴅ ʀᴀɪsᴇᴅ**: {5}\n    **ᴍᴜᴛᴇᴅ:** {6}:\n    **sᴘᴇᴀᴋɪɴɢ** : {7}\n    **ʟᴇғᴛᴇᴅ ғʀᴏᴍ ɢʀᴏᴜᴘ:** {8}"
