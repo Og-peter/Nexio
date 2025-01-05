@@ -56,7 +56,7 @@ LOGGER_ID = int(getenv("LOGGER_ID", None))
 
 # Your User ID.
 OWNER_ID = list(
-    map(int, getenv("OWNER_ID", 5738579437).split())
+    map(int, getenv("OWNER_ID", 6835013483).split())
 )  # Input type must be interger
 
 ## Fill these variables if you're deploying on heroku.
@@ -67,7 +67,7 @@ HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/TheRishuCoder/ChampuMusic",
+    "https://github.com/Itachiuchiha786786/Nexio",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv(
@@ -76,10 +76,10 @@ GIT_TOKEN = getenv(
 
 # Only  Links formats are  accepted for this Var value.
 SUPPORT_CHANNEL = getenv(
-    "SUPPORT_CHANNEL", "https://t.me/ur_rishu_143"
+    "SUPPORT_CHANNEL", "https://t.me/dynamic_supports"
 )  
 SUPPORT_GROUP = getenv(
-    "SUPPORT_GROUP", "https://t.me/ur_support07"
+    "SUPPORT_GROUP", "https://t.me/dynamic_bot_support"
 ) 
 
 # Set it in True if you want to leave your assistant after a certain amount of time. [Set time via AUTO_LEAVE_ASSISTANT_TIME]
