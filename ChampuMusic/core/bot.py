@@ -165,27 +165,14 @@ class ChampuBot(Client):
         # Check if bot is an admin in the logger group
         if config.LOGGER_ID:
             try:
-                chat_member_info = await self.get_chat_member(config.LOGGER_ID, self.id)
+                chat_member_info = await self.get_chat_member(
+                    config.LOGGER_ID, self.id
+                )
                 if chat_member_info.status != ChatMemberStatus.ADMINISTRATOR:
-                    LOGGER(__name__).error("Please promote Bot as Admin in Logger Group")
+                    LOGGER(__name__).error(
+                        "Please promote Bot as Admin in Logger Group"
+                    )
             except Exception as e:
                 LOGGER(__name__).error(f"Error occurred while checking bot status: {e}")
 
-        LOGGER(__name__).info(f"Bot {self.name} ({self.id}) started successfully!")
-        # Send start message to a group or channel if needed
-        if config.LOGGER_ID:
-            try:
-                await self.send_message(
-                    chat_id=config.LOGGER_ID,
-                    text=f"Bot has successfully started!\nWelcome {self.name} (@{self.username})",
-                    reply_markup=button
-                )
-            except Exception as e:
-                LOGGER(__name__).error(f"Failed to send start message to group: {e}")
-
-        # Handle additional custom startup behavior or features here
-        if hasattr(config, 'CUSTOM_STARTUP'):
-            try:
-                await self.custom_startup()
-            except Exception as e:
-                LOGGER(__name__).error(f"Error in custom startup process: {e}")
+        LOGGER(__name__).info(f"MusicBot Started as {self.name}")
