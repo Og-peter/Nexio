@@ -17,12 +17,14 @@ from config import BANNED_USERS, OWNER_ID
 @language
 async def useradd(client, message: Message, _):
     user = await extract_user(message)
-    if isinstance(user, int):  # If user is just an ID
+    if isinstance(user, int):  # If `user` is an integer (ID)
         user_id = user
         user_mention = f"[User](tg://user?id={user_id})"
-    else:  # If user is an object
+    elif user:  # If `user` is an object
         user_id = user.id
         user_mention = user.mention
+    else:  # If extraction fails
+        return await message.reply_text(_["general_1"])
 
     if user_id in SUDOERS:
         return await message.reply_text(_["sudo_1"].format(user_mention))
@@ -40,12 +42,14 @@ async def useradd(client, message: Message, _):
 @language
 async def userdel(client, message: Message, _):
     user = await extract_user(message)
-    if isinstance(user, int):  # If user is just an ID
+    if isinstance(user, int):  # If `user` is an integer (ID)
         user_id = user
         user_mention = f"[User](tg://user?id={user_id})"
-    else:  # If user is an object
+    elif user:  # If `user` is an object
         user_id = user.id
         user_mention = user.mention
+    else:  # If extraction fails
+        return await message.reply_text(_["general_1"])
 
     if user_id not in SUDOERS:
         return await message.reply_text(_["sudo_3"].format(user_mention))
