@@ -12,7 +12,7 @@ from ChampuMusic import LOGGER
 
 logger = LOGGER(__name__)
 
-
+# Cleanup existing folders
 if EXTRA_PLUGINS_FOLDER in os.listdir():
     shutil.rmtree(EXTRA_PLUGINS_FOLDER)
 
@@ -23,8 +23,13 @@ ROOT_DIR = abspath(join(dirname(__file__), "..", ".."))
 
 EXTERNAL_REPO_PATH = join(ROOT_DIR, EXTRA_PLUGINS_FOLDER)
 
-extra_plugins_enabled = EXTRA_PLUGINS.lower() == "true"
+# Check if EXTRA_PLUGINS is a boolean
+if isinstance(EXTRA_PLUGINS, str):
+    extra_plugins_enabled = EXTRA_PLUGINS.lower() == "true"
+else:
+    extra_plugins_enabled = EXTRA_PLUGINS is True
 
+# Handle extra plugins if enabled
 if extra_plugins_enabled:
     if not os.path.exists(EXTERNAL_REPO_PATH):
         with open(os.devnull, "w") as devnull:
@@ -38,6 +43,7 @@ if extra_plugins_enabled:
                     f"Error cloning external plugins repository: {clone_result.stderr.decode()}"
                 )
 
+    # Move the 'utils' directory
     utils_source_path = join(EXTERNAL_REPO_PATH, "utils")
     utils_target_path = join(ROOT_DIR, "utils")
     if os.path.isdir(utils_source_path):
@@ -57,6 +63,7 @@ if extra_plugins_enabled:
     if os.path.isdir(utils_target_path):
         sys.path.append(utils_target_path)
 
+    # Install requirements if present
     requirements_path = join(EXTERNAL_REPO_PATH, "requirements.txt")
     if os.path.isfile(requirements_path):
         with open(os.devnull, "w") as devnull:
@@ -75,12 +82,14 @@ def __list_all_modules():
     main_repo_plugins_dir = dirname(__file__)
     work_dirs = [main_repo_plugins_dir]
 
+    # Add external plugins path if enabled
     if extra_plugins_enabled:
         logger.info("Loading extra plugins...")
         work_dirs.append(join(EXTERNAL_REPO_PATH, "plugins"))
 
     all_modules = []
 
+    # Collect modules from both main and external directories
     for work_dir in work_dirs:
         mod_paths = glob.glob(join(work_dir, "*.py"))
         mod_paths += glob.glob(join(work_dir, "*/*.py"))
@@ -101,5 +110,6 @@ def __list_all_modules():
     return all_modules
 
 
+# Collect all modules
 ALL_MODULES = sorted(__list_all_modules())
 __all__ = ALL_MODULES + ["ALL_MODULES"]
