@@ -17,17 +17,19 @@ from config import BANNED_USERS, OWNER_ID
 @language
 async def useradd(client, message: Message, _):
     user = await extract_user(message)
-    if isinstance(user, int):  # If `user` is an integer (ID)
+    # Handle both cases: int (user ID) and user object
+    if isinstance(user, int):
         user_id = user
         user_mention = f"[User](tg://user?id={user_id})"
-    elif user:  # If `user` is an object
+    elif user:
         user_id = user.id
         user_mention = user.mention
-    else:  # If extraction fails
-        return await message.reply_text(_["general_1"])
+    else:
+        return await message.reply_text(_["general_1"])  # Handle missing user case
 
     if user_id in SUDOERS:
         return await message.reply_text(_["sudo_1"].format(user_mention))
+
     added = await add_sudo(user_id)
     if added:
         SUDOERS.add(user_id)
@@ -42,24 +44,25 @@ async def useradd(client, message: Message, _):
 @language
 async def userdel(client, message: Message, _):
     user = await extract_user(message)
-    if isinstance(user, int):  # If `user` is an integer (ID)
+    # Handle both cases: int (user ID) and user object
+    if isinstance(user, int):
         user_id = user
         user_mention = f"[User](tg://user?id={user_id})"
-    elif user:  # If `user` is an object
+    elif user:
         user_id = user.id
         user_mention = user.mention
-    else:  # If extraction fails
-        return await message.reply_text(_["general_1"])
+    else:
+        return await message.reply_text(_["general_1"])  # Handle missing user case
 
     if user_id not in SUDOERS:
         return await message.reply_text(_["sudo_3"].format(user_mention))
+
     removed = await remove_sudo(user_id)
     if removed:
         SUDOERS.remove(user_id)
         await message.reply_text(_["sudo_4"].format(user_mention))
     else:
         await message.reply_text(_["sudo_8"])
-
 
 @app.on_message(
     filters.command(["sudolist", "listsudo", "sudoers"], prefixes=["/", "!", "%", ",", ".", "@", "#"]) & ~BANNED_USERS
