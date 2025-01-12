@@ -28,13 +28,14 @@ class ChampuBot(Client):
             api_hash=config.API_HASH,
             bot_token=config.BOT_TOKEN,
         )
+
     async def start(self):
         await super().start()
         get_me = await self.get_me()
         self.username = get_me.username
         self.id = get_me.id
-        self.name = self.me.first_name + " " + (self.me.last_name or "")
-        self.mention = self.me.mention
+        self.name = f"{get_me.first_name} {get_me.last_name or ''}".strip()
+        self.mention = get_me.mention
 
         # Create the button
         button = InlineKeyboardMarkup(
@@ -52,9 +53,18 @@ class ChampuBot(Client):
         if config.LOGGER_ID:
             try:
                 await self.send_photo(
-                    config.LOGGER_ID,
+                    chat_id=config.LOGGER_ID,
                     photo=config.START_IMG_URL,
-                    caption=f"╔═══❰𝗪𝗘𝗟𝗖𝗢𝗠𝗘❱═══❍⊱❁۪۪\n║\n║┣⪼🥀ʙᴏᴛ sᴛᴀʀᴛᴇᴅ🎉\n║\n║┣⪼ {self.name}\n║\n║┣⪼🎈ɪᴅ:- `{self.id}` \n║\n║┣⪼🎄@{self.username} \n║ \n║┣⪼💖ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ😍\n║\n╚════════════════❍⊱❁",
+                    caption=f"""
+𖣐 {self.name} ɪs ᴀʟɪᴠᴇ ʙᴀʙʏ 𖣐
+━━━━━━━━ ⊱◈◈◈⊰ ━━━━━━━━
+
+● ɪᴅ ➠ `{self.id}`
+● ᴜsᴇʀɴᴀᴍᴇ ➠ @{self.username}
+
+◈ ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ
+━━━━━━━━ ⊱◈◈◈⊰ ━━━━━━━━
+""",
                     reply_markup=button,
                 )
             except pyrogram.errors.ChatWriteForbidden as e:
@@ -62,7 +72,16 @@ class ChampuBot(Client):
                 try:
                     await self.send_message(
                         config.LOGGER_ID,
-                        f"╔══❰𝗪𝗘𝗟𝗖𝗢𝗠𝗘❱══❍⊱❁۪۪\n║\n║┣⪼🥀ʙᴏᴛ sᴛᴀʀᴛᴇᴅ🎉\n║\n║◈ {self.name}\n║\n║┣⪼🎈ɪᴅ:- `{self.id}` \n║\n║┣⪼🎄@{self.username} \n║ \n║┣⪼💖ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ😍\n║\n╚══════════════❍⊱❁",
+                        text=f"""
+𖣐 {self.name} ɪs ᴀʟɪᴠᴇ ʙᴀʙʏ 𖣐
+━━━━━━━━ ⊱◈◈◈⊰ ━━━━━━━━
+
+● ɪᴅ ➠ `{self.id}`
+● ᴜsᴇʀɴᴀᴍᴇ ➠ @{self.username}
+
+◈ ᴛʜᴀɴᴋs ғᴏʀ ᴜsɪɴɢ
+━━━━━━━━ ⊱◈◈◈⊰ ━━━━━━━━
+""",
                         reply_markup=button,
                     )
                 except Exception as e:
@@ -72,13 +91,12 @@ class ChampuBot(Client):
                     f"Unexpected error while sending to log group: {e}"
                 )
         else:
-            LOGGER(__name__).warning(
-                "LOGGER_ID is not set, skipping log group notifications."
-            )
+            LOGGER(__name__).warning("LOGGER_ID is not set, skipping log group notifications.")
 
         # Setting commands
         if config.SET_CMDS:
             try:
+                # Commands for private chats
                 await self.set_bot_commands(
                     commands=[
                         BotCommand("start", "sᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ"),
@@ -87,6 +105,8 @@ class ChampuBot(Client):
                     ],
                     scope=BotCommandScopeAllPrivateChats(),
                 )
+
+                # Commands for group chats
                 await self.set_bot_commands(
                     commands=[
                         BotCommand("play", "Start playing requested song"),
@@ -100,6 +120,8 @@ class ChampuBot(Client):
                     ],
                     scope=BotCommandScopeAllGroupChats(),
                 )
+
+                # Commands for admin-specific chats
                 await self.set_bot_commands(
                     commands=[
                         BotCommand("start", "❥ ✨ᴛᴏ sᴛᴀʀᴛ ᴛʜᴇ ʙᴏᴛ✨"),
@@ -125,11 +147,15 @@ class ChampuBot(Client):
                         BotCommand("gali", "❥ 🔻ᴛᴏ ʀᴇᴘʟʏ ғᴏʀ ғᴜɴ🔻"),
                         BotCommand("shayri", "❥ 🔻ᴛᴏ ɢᴇᴛ ᴀ sʜᴀʏᴀʀɪ🔻"),
                         BotCommand("love", "❥ 🔻ᴛᴏ ɢᴇᴛ ᴀ ʟᴏᴠᴇ sʜᴀʏᴀʀɪ🔻"),
-                        BotCommand("sudolist", "❥ 🌱ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ sᴜᴅᴏʟɪsᴛ🌱"),
-                        BotCommand("owner", "❥ 💝ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ ᴏᴡɴᴇʀ💝"),
-                        BotCommand("update", "❥ 🐲ᴛᴏ ᴜᴘᴅᴀᴛᴇ ʙᴏᴛ🐲"),
-                        BotCommand("gstats", "❥ 💘ᴛᴏ sᴛᴀᴛs ᴏғ ᴛʜᴇ ʙᴏᴛ💘"),
-                        BotCommand("repo", "❥ 🍌ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ 𝚁𝙴𝙿𝙾🍌"),
+                        BotCommand("alive", "❥ 🔻ᴄʜᴇᴄᴋ ɪғ ʙᴏᴛ ɪs ᴀʟɪᴠᴇ🔻"),
+                        BotCommand("info", "❥ 🔻ᴛᴏ ɢᴇᴛ ᴜsᴇʀ ɪɴғᴏ🔻"),
+                        BotCommand("kick", "❥ 🔻ᴋɪᴄᴋ ᴀ ᴍᴇᴍʙᴇʀ🔻"),
+                        BotCommand("ban", "❥ 🔻ʙᴀɴ ᴀ ᴍᴇᴍʙᴇʀ🔻"),
+                        BotCommand("unban", "❥ 🔻ᴜɴʙᴀɴ ᴀ ᴍᴇᴍʙᴇʀ🔻"),
+                        BotCommand("promote", "❥ 🔻ᴘʀᴏᴍᴏᴛᴇ ᴀ ᴍᴇᴍʙᴇʀ🔻"),
+                        BotCommand("demote", "❥ 🔻ᴅᴇᴍᴏᴛᴇ ᴀ ᴍᴇᴍʙᴇʀ🔻"),
+                        BotCommand("pin", "❥ 🔻ᴘɪɴ ᴀ ᴍᴇssᴀɢᴇ🔻"),
+                        BotCommand("unpin", "❥ 🔻ᴜɴᴘɪɴ ᴀ ᴍᴇssᴀɢᴇ🔻"),
                     ],
                     scope=BotCommandScopeAllChatAdministrators(),
                 )
