@@ -4,7 +4,10 @@ uvloop.install()
 
 import pyrogram
 from pyrogram import Client
-from pyrogram.enums import ChatMemberStatus
+from pyrogram.types import ChatMember
+
+if member.status == "administrator":
+    ...
 from pyrogram.types import (
     BotCommand,
     BotCommandScopeAllChatAdministrators,
