@@ -141,9 +141,11 @@ def PlayWrapper(command):
 
         if chat_matched:
             # If common chat matches, skip join process and proceed
-            call_participants_id = [
-                member.user.id async for member in userbot.get_call_members(chat_id)
-            ]
+            try:
+                member = await app.get_chat_member(chat_id, userbot.id)
+                is_present = member.status != ChatMemberStatus.LEFT
+        except:
+                is_present = False
             if await is_active_chat(chat_id) and userbot.id not in call_participants_id:
                 await clean(chat_id)
 
